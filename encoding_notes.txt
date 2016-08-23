@@ -1,0 +1,29 @@
+Encoding:
+    Init()
+    	1. Check pixel format and allocate bit amount accordingly
+    	2. Allocate memory for codec frame
+    Encode_Frame()
+        1. Check pixel format again and change local variables accordingly
+    	2. Create header
+	    	a. Magic Number 
+	    	b. Comments - Optional
+	    	c. Width & Height
+	    	d. Max color value (N-bits e.g. 8-bits is 255)
+	3. Put image back
+
+Decoding:
+    Decode_Frame()
+    	1. Check buffer size and allocate memory accordingly 
+	2. Read header information
+	3. Get pixel information and set/create format accordingly
+	4. Display image by getting data from AVPacket and putting it in empty image
+
+Questions for TA:
+    Q: What pixel formats do we need to support?
+    A: Have to support color. Basically RGB8
+
+    Q: Why is BMP decoder still being called when we changed all the mpff references?
+    A: It is reading in the header as BMP and calling BMP.
+
+    Q: What does LL mean in bmp?
+    A: LongLong basically 7LL would represent 7 as a 64-bit integer.
